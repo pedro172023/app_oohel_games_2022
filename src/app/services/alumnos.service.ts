@@ -26,9 +26,9 @@ export class AlumnosService extends BASECONFIG {
         return this.http.post(`${this.auth0.BASEURL}alumno/perfil`, form, this.httpOptions)
     }
 
-    getTablero() {
+    getTablero(tokken) {
         let form = new FormData();
-        form.append('token', this.ttoken);
+        form.append('token', tokken);
         return this.http.post(`${this.auth0.BASEURL}jugador/tablero`, form, this.httpOptions)
     }
 

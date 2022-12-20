@@ -85,6 +85,7 @@ export class LoginPage implements OnInit {
                 console.log(d);
                 const { role, data } = await loading.onDidDismiss();
                 try {
+                    this.auth0.setUrlServer('');
                     this._guardarStorage('token', d.data.token);
                     this._guardarStorage('perfil', d.data.data);
                     /* Todo:

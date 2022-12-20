@@ -32,8 +32,8 @@ export class HomePage{
     this.AServices.inicializar_token();
     this.auth0.getToken().then(token => {
       this.ttoken = token;
+      this.getTableroJugadores();
     });
-    this.getTableroJugadores();
   }
 
   async getTableroJugadores(event?) {
@@ -43,7 +43,7 @@ export class HomePage{
     });
     await loading.present();
     this.isLoading = true;
-    this.AServices.getTablero().subscribe((data: ResponseApi) => {
+    this.AServices.getTablero(this.ttoken).subscribe((data: ResponseApi) => {
         setTimeout(() => {
             this.tablero = data.data.jugadores;
             this.premios = data.data.premios;
