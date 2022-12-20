@@ -1,0 +1,49 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="dismissModal()">
+                <ion-icon name="ios-arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Detalles</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="detalles">
+        <ion-card class="detalles">
+            <div class="ion-text-end">
+                <ion-badge color="success">No. {{detalles.no_tutoria}}</ion-badge>
+            </div>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <h2>Tutoría: {{detalles.tutoria}}</h2>
+                        <h3>Tutor: {{detalles.tutor}}</h3>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="6">
+                        Fecha inicio: <p>{{detalles.fecha_inicio}}</p>
+                    </ion-col>
+                    <ion-col size="6">
+                        Fecha fin: <p>{{detalles.fecha_fin}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="row">
+                    <ion-col size="6">
+                        Estatus: <p>{{detalles.state}}</p>
+                    </ion-col>
+                    <ion-col size="6">
+                        Ciclo escolar: <p>{{detalles.ciclo_escolar}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="row" *ngIf="detalles.periodo_escolar">
+                    <ion-col size="12">
+                        Periodo escolar: {{detalles.periodo_escolar}}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card>
+    </div>
+</ion-content>

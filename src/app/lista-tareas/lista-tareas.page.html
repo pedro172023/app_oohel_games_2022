@@ -1,0 +1,77 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Tareas</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="ios-arrow-down" pullingText="Baje para actualizar" refreshingSpinner="dots"
+            refreshingText="Actualizando tareas...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="!isLoading">
+        <div *ngIf="tareas.length > 0">
+            <ion-card class="tarea" *ngFor="let item of tareas">
+                <ion-card-content>
+                    <ion-item>
+                        <ion-text>
+                            <h1>{{item.tarea}}</h1>
+                        </ion-text>
+                    </ion-item>
+                    <div style="margin-left: 15px;">
+                        <br/>
+                        <ion-label class="ion-text-wrap">
+                            <p>Profesor(a):</p>
+                            <ion-text>
+                                <h4>{{item.profesor}}</h4>
+                            </ion-text>
+                            <p>Materia:</p>
+                            <ion-text>
+                                <h4>{{item.materia}}</h4>
+                            </ion-text>
+                            <p>Fecha de entrega: </p>
+                            <ion-text>
+                                <h4>{{item.fecha_fin}}</h4>
+                            </ion-text>
+                            <ion-text *ngIf="item.descripcion != Null; else NoDescription">
+                                <div [innerHTML]="item.descripcion"></div>
+                            </ion-text>
+                            <ng-template #NoDescription></ng-template>
+                        </ion-label>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="not_found" *ngIf="tareas.length == 0">
+            <h5 class="text_not_found">No se encontraron resultados</h5>
+        </div>
+    </div>
+    <div *ngIf="isLoading">
+        <ion-list *ngFor="let item of [].constructor(2)">
+            <ion-list-header>
+                <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+            </ion-list-header>
+            <ion-item *ngFor="let item of [].constructor(3)">
+                <ion-avatar slot="start">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                    <h3>
+                        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+
+</ion-content>

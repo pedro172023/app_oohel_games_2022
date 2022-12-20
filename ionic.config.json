@@ -1,0 +1,7 @@
+{
+  "name": "mark_ii_app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

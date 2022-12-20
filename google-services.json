@@ -1,0 +1,227 @@
+{
+  "project_info": {
+    "project_number": "213804629882",
+    "firebase_url": "https://markii-44364.firebaseio.com",
+    "project_id": "markii-44364",
+    "storage_bucket": "markii-44364.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213804629882:android:f04a680fc155c0781d20c3",
+        "android_client_info": {
+          "package_name": "com.oohel.app_alumno"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqWzsMDMAKGBt5s9RWhmNe25PqVz3_PSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213804629882-2abi5um700ohogodnf8ohfc7m8s883u2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oohel.appprofesor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213804629882:android:850b1d8a70c354471d20c3",
+        "android_client_info": {
+          "package_name": "com.oohel.app_base"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqWzsMDMAKGBt5s9RWhmNe25PqVz3_PSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213804629882-2abi5um700ohogodnf8ohfc7m8s883u2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oohel.appprofesor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213804629882:android:ff043b68d459ad9d1d20c3",
+        "android_client_info": {
+          "package_name": "com.oohel.app_profesor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqWzsMDMAKGBt5s9RWhmNe25PqVz3_PSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213804629882-2abi5um700ohogodnf8ohfc7m8s883u2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oohel.appprofesor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213804629882:android:bca4f6cb39e54ecc1d20c3",
+        "android_client_info": {
+          "package_name": "com.oohel.app_tutor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqWzsMDMAKGBt5s9RWhmNe25PqVz3_PSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213804629882-2abi5um700ohogodnf8ohfc7m8s883u2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oohel.appprofesor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213804629882:android:1e42fce249f5dff61d20c3",
+        "android_client_info": {
+          "package_name": "com.oohel.appaspirante"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqWzsMDMAKGBt5s9RWhmNe25PqVz3_PSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213804629882-2abi5um700ohogodnf8ohfc7m8s883u2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oohel.appprofesor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213804629882:android:46cdfabbdc8676c31d20c3",
+        "android_client_info": {
+          "package_name": "com.oohel.games"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqWzsMDMAKGBt5s9RWhmNe25PqVz3_PSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213804629882-v14vnupfa79s8tsg82jcg47f21sha98l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213804629882-2abi5um700ohogodnf8ohfc7m8s883u2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oohel.appprofesor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

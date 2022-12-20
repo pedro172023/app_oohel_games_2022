@@ -1,0 +1,109 @@
+<ion-header no-border>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button mode="ios" text="" color="light" icon="ios-arrow-back" defaultHref="home">
+			</ion-back-button>
+		</ion-buttons>
+		<ion-title>Calificaciones</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content pullingIcon="ios-arrow-down" pullingText="Baje para actualizar" refreshingSpinner="dots"
+			refreshingText="Actualizando calificaciones...">
+		</ion-refresher-content>
+	</ion-refresher>
+	<div *ngIf="!isLoading">
+		<div *ngIf="calificaciones.length > 0">
+			<ion-card *ngFor="let periodo of calificaciones" class="calificaciones">
+				<ion-card-header>
+					<h1>{{periodo.periodo}}</h1>
+				</ion-card-header>
+				<ion-card-content>
+					<div>
+						<ion-text color="black">
+							<h2>MATERIAS APROBADAS</h2>
+						</ion-text>
+					</div>
+					<ion-list>
+						<ion-row style="background-color: #e5e5e5;">
+							<ion-col size="8">
+								Materia
+							</ion-col>
+							<ion-col size="4" class="ion-text-center">
+								Calificación
+							</ion-col>
+						</ion-row>
+						<div *ngFor="let materia of periodo.materias_aprobadas">
+							<ion-row *ngIf="materia.materia">
+								<ion-col size="8">
+									{{materia.materia}}
+								</ion-col>
+								<ion-col size="4">
+									<div class="ion-text-center">{{materia.calificacion_final}}</div>
+								</ion-col>
+							</ion-row>
+						</div>
+					</ion-list>
+					<div *ngIf="periodo.materias_reprobadas.length > 0">
+						<div>
+							<ion-text color="danger">
+								<h2>MATERIAS REPROBADAS</h2>
+							</ion-text>
+						</div>
+						<div>
+							<ion-list>
+								<ion-row style="background-color: #e5e5e5;">
+									<ion-col size="8">
+										Materia
+									</ion-col>
+									<ion-col size="4" class="ion-text-center">
+										Calificación
+									</ion-col>
+								</ion-row>
+								<div *ngFor="let materia of periodo.materias_reprobadas">
+									<ion-row>
+										<ion-col size="8">
+											{{materia.materia}}
+										</ion-col>
+										<ion-col size="4">
+											<div class="ion-text-center">{{materia.calificacion_final}}</div>
+										</ion-col>
+									</ion-row>
+								</div>
+							</ion-list>
+						</div>
+					</div>
+				</ion-card-content>
+			</ion-card>
+		</div>
+		<div class="not_found" *ngIf="calificaciones.length == 0">
+			<h5 class="text_not_found">No se encontraron resultados</h5>
+		</div>
+	</div>
+	
+	<div *ngIf="isLoading">
+		<ion-list *ngFor="let item of [1,2]">
+			<ion-list-header>
+				<ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+			</ion-list-header>
+			<ion-item *ngFor="let item of [1,2,3]">
+				<ion-avatar slot="start">
+					<ion-skeleton-text animated></ion-skeleton-text>
+				</ion-avatar>
+				<ion-label>
+					<h3>
+						<ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+					</h3>
+					<p>
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</p>
+					<p>
+						<ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+					</p>
+				</ion-label>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>

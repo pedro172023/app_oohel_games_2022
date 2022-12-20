@@ -1,0 +1,37 @@
+<ion-app>
+    <ion-split-pane contentId="main-content">
+        <ion-menu contentId="main-content" type="overlay" class="menu">
+            <div class="logo">
+                <img src="assets/imgs/icon.png">
+            </div>
+            <ion-content class="content">
+                <div class="content_menu" class="scroll" scrollY="true">
+                    <ion-list>
+                        <br/>
+                        <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+                            <div class="item_menu">
+                                <ion-row [routerDirection]="'root'" [routerLinkActive]="['active_menu']" [routerLink]="[p.url]">
+                                    <ion-col size="2" style="margin: auto;">
+                                        <ion-icon style="font-size: 30px;" [name]="p.icon"></ion-icon>
+                                    </ion-col>
+                                    <ion-col size="10" style="margin: auto;">
+                                        <ion-label>{{p.title}}</ion-label>
+                                    </ion-col>
+                                </ion-row>
+                            </div>
+                        </ion-menu-toggle>
+                        <ion-menu-toggle>
+                            <ion-button class="exit_sesion" expand="full" (click)="cerrar_session()" fill="outline">Cerrar Sesión
+                            </ion-button>
+                        </ion-menu-toggle>
+                    </ion-list>
+                </div>
+            </ion-content>
+            <ion-footer>
+                <p class="ion-text-center reservedd" style="color:white">© 2022 Oohel Technologies S.A. de C.V. All Rights
+                    Reserved</p>
+            </ion-footer>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

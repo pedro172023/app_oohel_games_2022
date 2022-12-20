@@ -1,0 +1,130 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Acerca</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="cargarAcercaCompany($event)">
+    <ion-refresher-content pullingIcon="ios-arrow-down" pullingText="Baje para actualizar" refreshingSpinner="dots"
+      refreshingText="Actualizando información...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="!isLoading">
+    <div *ngIf="acerca_company.length > 0">
+      <ion-card class="card_acerca_company" *ngFor="let item of acerca_company">
+        <ion-card-header>
+          <ion-card-title style="font-size: 25px;">{{ item.name }}</ion-card-title>
+          <ion-chip *ngIf="item.country_id && item.state_id && item.city && item.street" color="secondary">
+            <ion-icon name="pin"></ion-icon>
+            <ion-label>{{ item.country_id[1] }}, {{ item.state_id[1] }}, {{ item.city }}, {{ item.street }}</ion-label>
+          </ion-chip>
+          <ion-chip *ngIf="item.email" color="tertiary">
+            <ion-icon name="mail"></ion-icon>
+            <ion-label>
+              <p><a href="mailto:{{item.email}}" target="_top">{{ item.email }}</a></p>
+            </ion-label>
+          </ion-chip>
+          <ion-chip *ngIf="item.phone" outline color="secondary" (click)="call_phone(item.phone)">
+            <ion-icon name="call"></ion-icon>
+            <ion-label>{{ item.phone }}</ion-label>
+          </ion-chip>
+          <ion-chip *ngIf="item.website" outline color="dark" (click)="toSocial(item.website)">
+            <ion-icon name="globe"></ion-icon>
+            <ion-label>{{ item.website }}</ion-label>
+          </ion-chip>
+        </ion-card-header>
+      </ion-card>
+      <ion-grid *ngFor="let item of acerca_company">
+        <ion-row>
+          <ion-col>
+            <div class="card-red-social facebook" (click)="toSocial(item.social_facebook)">
+              <div>
+                <ion-icon class="icono" name="logo-facebook"></ion-icon>
+              </div>
+              <div>
+                <ion-label class="label">Facebook</ion-label>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="card-red-social twitter" (click)="toSocial(item.social_twitter)">
+              <div>
+                <ion-icon class="icono" name="logo-twitter"></ion-icon>
+              </div>
+              <div>
+                <ion-label class="label">Twitter</ion-label>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="card-red-social linkedin" (click)="toSocial(item.social_linkedin)">
+              <div>
+                <ion-icon class="icono" name="logo-linkedin"></ion-icon>
+              </div>
+              <div>
+                <ion-label class="label">LinkedIn</ion-label>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="not_found" *ngIf="acerca_company.length == 0">
+      <h5 class="text_not_found">No se encontraron resultados</h5>
+    </div>
+  </div>
+  <div *ngIf="isLoading">
+    <ion-list>
+      <ion-card style="text-align: center;">
+        <ion-card-content>
+          <ion-label class="ion-text-center" *ngFor="let item of [].constructor(2)">
+            <h1>
+              <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            </h1>
+            <h3>
+              <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            </h3>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+      <ion-row *ngFor="let item of [].constructor(2)">
+        <ion-col>
+          <ion-item>
+            <ion-label>
+              <h3>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              </h3>
+              <p>
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>
+              <h3>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              </h3>
+              <p>
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </div>
+</ion-content>

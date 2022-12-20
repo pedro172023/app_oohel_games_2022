@@ -1,0 +1,30 @@
+.tipo_evento_item {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+button.days-btn > p {
+
+  color: red !important;
+
+}
+.monthview-primary-with-event {
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+.weekview-allday-content-table .calendar-event {
+  height: 50px !important;
+}
+
+table{
+  background: white !important; 
+}
+
+.tipo_evento{
+  padding: 10px;
+  border-radius: 20px; 
+  margin: 3px;
+}

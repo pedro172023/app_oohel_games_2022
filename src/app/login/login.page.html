@@ -1,0 +1,43 @@
+<ion-card class="bg-image" style="margin: 0; padding: 0; height: 100%">
+    <ion-card-content>
+        <div class="logo">
+            <img src="assets/imgs/icon.png">
+        </div>
+        <ion-card-title class="ion-text-center">
+            <h1>Iniciar Sesión</h1>
+        </ion-card-title>
+        <ion-text color="danger" class="ion-text-center" *ngIf="error_login.visible">
+            <h3>
+                {{ error_login.message }}
+            </h3>
+        </ion-text>
+        <div class="datos">
+            <form [formGroup]="formulario_login" novalidate class="ion-padding">
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-icon name="mail" item-start></ion-icon>
+                            <ion-input formControlName="email" type="email" (blur)="validatorEmail()"
+                                placeholder="Email" (focus)="validatorEmailFalse()"></ion-input>
+                        </ion-item>
+                        <ion-text class="error"
+                            *ngIf="formulario_login.get('email').hasError('required') && errorinput == true">
+                            Este campo es requerido
+                        </ion-text>
+                        <ion-text class="error"
+                            *ngIf="formulario_login.get('email').errors && formulario_login.get('email').dirty  && errorinput == true">
+                            El formato no es correcto
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+                <ion-row center>
+                    <ion-col class="ion-text-center">
+                        <ion-button class="ion-text-center" expand="block" ion-button color="light"
+                            (click)="checkSesion()">Iniciar sesión
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </form>
+        </div>
+    </ion-card-content>
+</ion-card>

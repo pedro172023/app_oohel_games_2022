@@ -1,0 +1,29 @@
+.card_avisos{
+    text-align: center;
+}
+
+.not_found{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.not_found .text_not_found{
+    font-size: 40px;
+    margin-top: 50%;
+    color: gray;
+}
+
+.avisos{
+    background: white;
+    padding: 5px;
+    border-bottom: .5px solid lightgrey;
+}
+
+.outline{
+    border: 1px solid lawngreen;
+    padding: 3px;
+    border-radius: 25px;
+    font-weight: 600;
+}
+

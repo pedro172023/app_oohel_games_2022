@@ -1,0 +1,72 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Eventos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="cargarEventosCompany($event)">
+    <ion-refresher-content pullingIcon="ios-arrow-down" pullingText="Baje para actualizar" refreshingSpinner="dots"
+      refreshingText="Actualizando eventos...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="!isLoading">
+    <div *ngIf="eventos_company.length > 0">
+      <div class="event" *ngFor="let evento of eventos_company">
+        <ion-row>
+          <ion-col size="8">
+            <ion-label>
+              <h2>{{ evento.name }}</h2>
+              <h3>{{ evento.organizer_id[1] }} </h3>
+              <ion-chip color="success">
+                <ion-label>Tipo de Evento: {{ evento.event_type_id[1] }}</ion-label>
+              </ion-chip>
+            </ion-label>
+          </ion-col>
+          <ion-col size="4" style="text-align: end;margin: auto;">
+            <ion-button color="success" (click)="verMas(evento.website_url)">
+              Ver más <ion-icon slot="end" name="add"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row color="success" size="12">
+          <div class="rango_fecha">
+            <p style="font-size: 13px;">
+              Del <b>{{ evento.date_begin }}</b>
+              al
+              <b class="outline">{{ evento.date_end }}</b></p>
+          </div>
+        </ion-row>
+      </div>
+    </div>
+    <div class="not_found" *ngIf="eventos_company.length == 0">
+      <h5 class="text_not_found">No se encontraron resultados</h5>
+    </div>
+  </div>
+  <div *ngIf="isLoading">
+    <ion-list *ngFor="let item of [].constructor(2)">
+      <ion-item *ngFor="let item of [].constructor(3)">
+        <ion-avatar slot="end">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

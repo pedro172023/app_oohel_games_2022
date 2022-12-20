@@ -1,0 +1,22 @@
+
+{
+  "android": 
+  {
+    "debug": 
+    {
+      "keystore": "oohel_app_games.keystore",
+      "storePassword": "oohel_app_games",
+      "alias": "oohel_app_games",
+      "password": "oohel_app_games",
+      "keystoreType": ""
+    },
+    "release": 
+    {
+      "keystore": "oohel_app_games.keystore",
+      "storePassword": "oohel_app_games",
+      "alias": "oohel_app_games",
+      "password": "oohel_app_games",
+      "keystoreType": ""
+    }
+  }
+}

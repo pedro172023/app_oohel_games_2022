@@ -1,0 +1,39 @@
+.horario{
+    background: white;
+}
+
+.hora{
+    margin: 0px;
+    padding: 0px;
+    border-right: dashed .5px lightgrey;
+}
+
+.materia{
+    border-bottom: dashed .5px lightgrey;
+}
+
+ion-grid{
+    padding: 0px;
+    margin: 0px
+}
+
+ion-card-content{
+    padding: 0px;
+    margin: 0px;
+}
+
+ion-card{
+    padding: 0px;
+}
+
+.not_found{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.not_found .text_not_found{
+    font-size: 40px;
+    margin-top: 50%;
+    color: gray;
+}

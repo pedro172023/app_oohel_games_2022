@@ -1,0 +1,15 @@
+.calificaciones{
+    --background: white;
+}
+
+.not_found{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.not_found .text_not_found{
+    font-size: 40px;
+    margin-top: 50%;
+    color: gray;
+}

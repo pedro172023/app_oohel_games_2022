@@ -1,0 +1,67 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Mis Tutorías</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="!isLoading">
+        <div *ngIf="tutorias.length > 0">
+            <ion-card class="tutoria">
+                <ion-card-content>
+                    <ion-grid *ngFor="let item of tutorias">
+                        <ion-row>
+                            <ion-col>
+                                <h2>Tutoría: {{item.tutoria}}</h2>
+                                <h3>Tutor: {{item.tutor}}</h3>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col size="6">Fecha inicio: <p>{{item.fecha_inicio}}</p>
+                            </ion-col>
+                            <ion-col size="6">Fecha fin: <p>{{item.fecha_fin}}</p>
+                            </ion-col>
+                            <ion-col class="ion-text-end">
+                                <ion-button text-center ion-button color="success" (click)="verDetalles(item)">
+                                    Ver detalles
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="not_found" *ngIf="tutorias.length==0">
+            <h5 class="text_not_found">No se encontraron resultados</h5>
+        </div>
+    </div>
+    <div *ngIf="isLoading">
+        <ion-list *ngFor="let item of [1,2]">
+            <ion-list-header>
+                <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+            </ion-list-header>
+            <ion-item *ngFor="let item of [1,2,3]">
+				<ion-avatar slot="start">
+					<ion-skeleton-text animated></ion-skeleton-text>
+				</ion-avatar>
+				<ion-label>
+					<h3>
+						<ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+					</h3>
+					<p>
+						<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+					</p>
+					<p>
+						<ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+					</p>
+				</ion-label>
+			</ion-item>
+        </ion-list>
+    </div>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="dismissModal()">
+                <ion-icon name="ios-arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Detalles</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+    <ion-card class="detalle_pago">
+        <ion-card-content>
+            <ion-item>
+                <ion-icon name="cash" slot="start"></ion-icon>
+                <div class="ion-text-center">
+                    <h2 style="text-align: center">{{ pago.folio }}</h2>
+                </div>
+                <!--<ion-button fill="outline" slot="end">Pagar</ion-button> -->
+            </ion-item>
+            <ion-row>
+                <ion-col>
+                    <ion-label>Vence:
+                        <strong>
+                            {{ pago.fecha_vencimiento |date:"d  MMMM  y" }}
+                        </strong>
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-label>
+                        Periodo escolar: <br />
+                        <strong>
+                            {{ pago.periodo_escolar_id[1]}}
+                        </strong>
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="pago.origen == 'Plan Financiero'">
+                <ion-col>
+                    <ion-label>Colegiatura del mes: <br />
+                        <strong>{{  pago.mes_id }}</strong>
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <h3 style="text-align: center">Conceptos:</h3>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-item *ngFor="let concepto of pago.conceptos">
+                    <ion-label> {{ concepto.name }}</ion-label>
+                    <ion-note slot="end" color="dark">${{ concepto.total }}</ion-note>
+                </ion-item>
+            </ion-row>
+            <ion-row>
+                <ion-item-divider>
+                    <ion-label>
+                        Total a pagar:
+                    </ion-label>
+                    <ion-badge slot="end" color="primary">${{ pago.total_saldo }}</ion-badge>
+                </ion-item-divider>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

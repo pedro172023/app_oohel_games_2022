@@ -1,0 +1,97 @@
+<ion-header no-border>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>Mi perfil</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	
+	<div class="ion-text-center imagen" *ngFor="let item of alumnos">
+		<div *ngIf="item.imagen_base64 != ''">
+			<img [src]="convertBase64(item.imagen_base64)">
+		</div>
+		<div *ngIf="item.imagen_base64 == ''">
+			<img src="assets/imgs/image_default.png">
+		</div>
+	</div>
+	<ion-card class="perfil">
+		<ion-card-content>
+			<div *ngIf="!isLoading">
+				<div *ngFor="let item of alumnos">
+					<br/>
+					<br/>
+					<br/>
+					<ion-row style="color: black;">
+						<ion-label fixed><b>Matrícula: 
+							<span *ngIf="item.matricula == ''"></span>
+							<span *ngIf="item.matricula != ''">{{item.matricula}}</span></b>
+						</ion-label>
+					</ion-row>
+					<ion-row>
+						<ion-label fixed><b>Nombre: </b>{{item.nombre}}</ion-label>
+					</ion-row>
+					<ion-row>
+						<ion-label fixed><b>Apellido Paterno: </b>{{item.apellido_paterno}}</ion-label>
+					</ion-row>
+					<ion-row>
+						<ion-label fixed><b>Apellido Materno: </b>{{item.apellido_materno}}</ion-label>
+					</ion-row>
+					<ion-row>
+						<ion-label fixed><b>CURP: </b>{{item.curp}}</ion-label>
+					</ion-row>
+					<ion-row>
+						<ion-label fixed><b>Email: </b>{{item.email}}</ion-label>
+					</ion-row>
+					<ion-row>
+						<ion-label fixed><b>Género: </b>
+							<span *ngIf="item.genero == 'm'">Masculino</span>
+							<span *ngIf="item.genero == 'f'">Femenino</span>
+							<span *ngIf="item.genero == ''"></span>
+						</ion-label>
+					</ion-row>
+					<ion-row>
+						<ion-label fixed><b>Grado: </b> {{item.grado}}</ion-label>
+					</ion-row>
+					<ion-row>
+						<ion-label fixed><b>Calidad del alumno: </b>{{item.calidad}}</ion-label>
+					</ion-row>
+					<ion-row>
+						<ion-label fixed><b>Nivel educativo: </b>{{item.nivel_educativo}}</ion-label>
+					</ion-row>
+					<ion-row>
+						<ion-label fixed><b>Programa educativo: </b>{{item.programa_educativo}}</ion-label>
+					</ion-row>
+				</div>
+			</div>
+			<div *ngIf="isLoading">
+				<ion-list *ngFor="let item of [1,2,3]">
+					<ion-list-header>
+						<ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+					</ion-list-header>
+					<ion-item *ngFor="let item of [1,2,3]">
+						<ion-avatar slot="start">
+							<ion-skeleton-text animated></ion-skeleton-text>
+						</ion-avatar>
+						<ion-label>
+							<h3>
+								<ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+							</h3>
+							<p>
+								<ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+							</p>
+							<p>
+								<ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+							</p>
+						</ion-label>
+					</ion-item>
+				</ion-list>
+			</div>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Finanzas</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="getPagosPendientes($event)">
+        <ion-refresher-content pullingIcon="ios-arrow-down" pullingText="Baje para actualizar" refreshingSpinner="dots"
+            refreshingText="Actualizando pagos...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="!isLoading">
+        <div *ngIf="pagos.length > 0">
+            <ion-item *ngFor="let pago of pagos">
+                <ion-label>
+                    <h2>{{ pago.folio }}</h2>
+                    <p>Total a pagar:
+                        <ion-badge color="secondary">${{ pago.total_saldo }}</ion-badge>
+                    </p>
+                    <p>Fecha de vencimiento:
+                        <ion-badge color="tertiary">
+                            {{ pago.fecha_vencimiento |date:"d  MMMM  y" }}
+                        </ion-badge>
+                    </p>
+                </ion-label>
+                <ion-button slot="end" (click)="ver_detalle_recibo(pago)">
+                    <ion-icon name="eye"></ion-icon>
+                </ion-button>
+            </ion-item>
+        </div>
+        <div class="not_found" *ngIf="pagos.length == 0">
+            <h5 class="text_not_found">No se encontraron resultados</h5>
+        </div>
+    </div>
+    <div *ngIf="isLoading">
+        <ion-list *ngFor="let item of [].constructor(2)">
+            <ion-list-header>
+                <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+            </ion-list-header>
+            <ion-item *ngFor="let item of [].constructor(3)">
+                <ion-avatar slot="start">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                    <h3>
+                        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

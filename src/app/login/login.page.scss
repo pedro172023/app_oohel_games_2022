@@ -1,0 +1,62 @@
+.bg-image {
+  background-image: url('../../assets/imgs/chica.png');
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    //background-image: linear-gradient( to bottom right, #dadada, #1fc3d5);
+    background-image: linear-gradient(to bottom right, var(--ion-color-content), var(--ion-color-menuselected));
+    opacity: 0.6;
+    min-height: 100 hv;
+  }
+
+}
+
+.scroll-content {
+  padding: 0px !important;
+}
+
+h1 {
+  color: white;
+}
+
+.logo {
+  text-align: center;
+  margin: auto;
+  width: 100px;
+  height: 100px;;
+}
+
+ion-card-title text-center.h1 {
+  padding-top: 50px !important;
+}
+
+.datos {
+  padding-top: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+span.button-inner {
+  color: #00b5ff !important;
+  font-family: inherit !important;
+}
+
+.contra {
+  font-size: 16px;
+  font-weight: 300px;
+  margin: auto;
+  text-align: center;
+  color:white;
+}
+
+.error{
+  color: crimson;
+}
